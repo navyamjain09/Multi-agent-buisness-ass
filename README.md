@@ -1,32 +1,3 @@
-# Northstar: Azure AI Foundry business assistant
-
-Northstar is a starter multi-agent business assistant. A lightweight router sends each request to a finance, operations, sales, research, or general business specialist. It runs locally in demo mode and can call deployed Azure AI Foundry agents with Microsoft Entra ID.
-
-## Run locally
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-uvicorn app.main:app --reload
-```
-
-Open http://127.0.0.1:8000.
-
-## Connect Azure
-
-Set `DEMO_MODE=false` in `.env`, then configure:
-
-
-The app uses `DefaultAzureCredential`, so local development can authenticate through Azure CLI (`az login`) and production can use a managed identity. Each request is sent through the Foundry Responses endpoint with an `agent_reference`, keeping the `/api/chat` contract unchanged. If `AZURE_AI_PROJECT_ENDPOINT` is not set, the app can still use the optional Azure OpenAI key-based fallback.
-
-## Suggested Azure services
-
-
-## Project shape
-
-
 # AgentGrid
 
 AgentGrid is a multi-agent business assistant built with React, FastAPI, and Azure AI Foundry. It routes business questions to specialist agents for finance, operations, sales, market research, or cross-functional planning.
